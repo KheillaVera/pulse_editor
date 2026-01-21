@@ -1,0 +1,313 @@
+/* --- 1. DESIGN & COLOR PRINCIPLES --- */
+:root {
+    /* HARMONY: Earthy, natural palette */
+    --bg-deep: #1e1b18;      /* Dark Coffee (Background) */
+    --text-cream: #f4f1ea;   /* Cream (High Contrast Text) */
+    --brand-green: #689f38;  /* Leaf Green (Brand Identity/Freshness) */
+    --alert-hover: #7cb342;  /* Lighter Green (Feedback) */
+    --gray-muted: #8d8d8d;   /* Muted text for less importance */
+}
+
+/* CONSISTENCY: Global Typography */
+body {
+    background-color: var(--bg-deep);
+    color: var(--text-cream);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* --- 2. CLARITY: Navigation --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo-area { display: flex; align-items: center; gap: 15px; }
+.logo {
+    height: 50px;       /* Set a fixed size */
+    width: 50px;        /* Make it a perfect square first */
+    object-fit: cover;  /* Ensures the image doesn't stretch */
+    
+    /* THE FIXES */
+    border-radius: 50%; /* 1. Turns the square into a circle */
+    border: 2px solid var(--brand-green); /* 2. Adds a green rim to tie it in */
+    padding: 2px;       /* 3. Adds a tiny gap between image and rim */
+    background-color: white; /* 4. Optional: If your logo is transparent, this adds a clean backing */
+    
+    /* FEEDBACK PRINCIPLE */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo:hover {
+    transform: rotate(5deg) scale(1.1); /* Slight tilt and zoom on hover */
+    box-shadow: 0 0 15px rgba(104, 159, 56, 0.6); /* Green glow effect */
+}
+.brand-name { font-weight: 800; letter-spacing: 2px; font-size: 1.2rem; }
+
+.nav-links { display: flex; gap: 30px; }
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-cream);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.3s; /* FEEDBACK: Smooth transition */
+}
+
+.nav-item:hover { color: var(--brand-green); }
+.nav-item.active { border-bottom: 2px solid var(--brand-green); }
+
+/* --- 3. SIMPLICITY: Hero Section --- */
+.hero-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.main-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.highlight { color: var(--brand-green); } /* EMPHASIS */
+
+.subtitle {
+    color: var(--gray-muted);
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+/* --- 4. USER CONTROL & FEEDBACK: The Upload Area --- */
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.drop-zone {
+    width: 100%;
+    padding: 40px;
+    border: 2px dashed var(--gray-muted);
+    border-radius: 12px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.02);
+    transition: all 0.3s ease; /* FEEDBACK: Animation */
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* FEEDBACK: Visual response when hovering */
+.drop-zone:hover {
+    border-color: var(--brand-green);
+    background: rgba(104, 159, 56, 0.1);
+}
+
+.drop-zone .icon { font-size: 2rem; display: block; margin-bottom: 10px; }
+.drop-zone .label { font-weight: 600; color: var(--text-cream); }
+
+/* ACCESSIBILITY: Input is invisible but covers the click area */
+.drop-zone input {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* EMPHASIS: Primary Button */
+.btn-primary {
+    background-color: var(--brand-green);
+    color: #ffffff;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(104, 159, 56, 0.4);
+    transition: transform 0.2s, background-color 0.2s; /* FEEDBACK */
+}
+
+/* FEEDBACK: Click effect */
+.btn-primary:hover {
+    background-color: var(--alert-hover);
+    transform: translateY(-2px);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+/* --- EDITOR SPECIFIC STYLES --- */
+
+/* Layout: Fixed Screen (No scrolling) */
+.editor-mode {
+    overflow: hidden;
+}
+
+.editor-nav {
+    height: 60px;
+    background: var(--bg-deep);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.back-btn {
+    text-decoration: none;
+    color: var(--gray-muted);
+    font-weight: 600;
+    transition: 0.3s;
+}
+.back-btn:hover { color: var(--text-cream); }
+
+.file-name {
+    margin-left: 20px;
+    font-size: 0.9rem;
+    color: var(--brand-green);
+    font-weight: 700;
+}
+
+.small-btn {
+    padding: 10px 25px; /* Smaller than the homepage button */
+    font-size: 0.85rem;
+}
+
+/* WORKSPACE GRID */
+.workspace {
+    display: flex;
+    height: calc(100vh - 200px); /* Leave room for header & timeline */
+}
+
+/* SIDEBAR (Tools) */
+.sidebar {
+    width: 90px;
+    background: rgba(0,0,0,0.2); /* Subtle contrast */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+.tool-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 0;
+    cursor: pointer;
+    color: var(--gray-muted);
+    transition: 0.3s;
+    border-left: 3px solid transparent; /* Invisible border for active state */
+}
+
+/* FEEDBACK: Active/Hover States */
+.tool-item:hover, .tool-item.active {
+    background: rgba(255,255,255,0.03);
+    color: var(--text-cream);
+}
+
+.tool-item.active {
+    border-left-color: var(--brand-green); /* Visual indicator of selection */
+    color: var(--brand-green);
+}
+
+.tool-item .icon { font-size: 1.4rem; margin-bottom: 5px; }
+.tool-item .label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; }
+
+/* MAIN STAGE */
+.preview-stage {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #15120f; /* Slightly darker than bg-deep for focus */
+}
+
+.video-container {
+    max-height: 85%;
+    aspect-ratio: 9/16; /* Mobile format */
+    background: black;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+}
+
+video { height: 100%; width: 100%; object-fit: cover; }
+
+/* CONTROLS OVERLAY (Play Button) */
+.controls-overlay {
+    position: absolute;
+    bottom: 20px; left: 0; width: 100%;
+    display: flex; justify-content: center;
+    pointer-events: none; /* Let clicks pass through to video */
+}
+
+.control-btn {
+    pointer-events: auto;
+    background: rgba(30, 27, 24, 0.8);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.control-btn:hover { background: var(--brand-green); border-color: var(--brand-green); }
+
+/* TIMELINE (Footer) */
+.timeline-panel {
+    position: fixed;
+    bottom: 0; left: 0; width: 100%;
+    height: 140px;
+    background: var(--bg-deep);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.time-readout {
+    font-family: monospace;
+    color: var(--brand-green);
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.track-container {
+    width: 100%;
+    height: 50px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* The moving playhead */
+.progress-bar {
+    height: 100%;
+    width: 0%; /* JS will update this */
+    background: rgba(104, 159, 56, 0.3); /* Transparent Green */
+    border-right: 2px solid var(--brand-green);
+}
