@@ -63,6 +63,9 @@ if (isset($_GET['id'])) {
             <button class="filter-btn" onclick="applyFilter('sepia(60%)')">Vintage</button>
             <button class="filter-btn" onclick="applyFilter('contrast(150%)')">Drama</button>
             <button class="filter-btn" onclick="applyFilter('hue-rotate(90deg)')">Cyber</button>
+            <button class="filter-btn" onclick="applyFilter('hue-rotate(90deg)')">rio de jainero</button>
+            <button class="filter-btn" onclick="applyFilter('hue-rotate(90deg)')">tokyo</button>
+            <button class="filter-btn" onclick="applyFilter('hue-rotate(90deg)')">hyper</button>
         </div>
 
         <h3>Adjustments</h3>
