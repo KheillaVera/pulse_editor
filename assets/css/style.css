@@ -327,13 +327,15 @@ video { height: 100%; width: 100%; object-fit: cover; }
     margin-bottom: 10px;
     font-size: 0.9rem;
 }
-.time-readout {
-    font-family: monospace;
-    color: var(--brand-green);
-    margin-bottom: 10px;
-    font-size: 0.9rem;
-}
 
+.track-container {
+    width: 100%;
+    height: 50px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+}
 .track-container {
     width: 100%;
     height: 50px;
