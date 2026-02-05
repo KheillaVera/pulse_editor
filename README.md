@@ -1,0 +1,1 @@
+# This is our pulse editor which is a web PPLICtion that edit videos and photos with some special features and effects it is more outstanding because it will have much more features that a re all combined in one same application(pulse editor).
