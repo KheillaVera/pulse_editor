@@ -327,6 +327,12 @@ video { height: 100%; width: 100%; object-fit: cover; }
     margin-bottom: 10px;
     font-size: 0.9rem;
 }
+.time-readout {
+    font-family: monospace;
+    color: var(--brand-green);
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
 
 .track-container {
     width: 100%;
