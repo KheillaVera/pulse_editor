@@ -344,6 +344,13 @@ video { height: 100%; width: 100%; object-fit: cover; }
     background: rgba(104, 159, 56, 0.3); /* Transparent Green */
     border-right: 2px solid var(--brand-green);
 }
+
+.progress-bar {
+    height: 100%;
+    width: 0%; /* JS will update this */
+    background: rgba(104, 159, 56, 0.3); /* Transparent Green */
+    border-right: 2px solid var(--brand-green);
+}
 .icon-btn {
     background: transparent;
     border: 1px solid var(--border);
