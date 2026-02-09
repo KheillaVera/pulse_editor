@@ -362,5 +362,5 @@ video { height: 100%; width: 100%; object-fit: cover; }
     background: var(--brand-green);
     color: white;
     border-color: var(--brand-green);
-    padding: 20px;
+    
 }
