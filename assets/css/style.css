@@ -364,9 +364,3 @@ video { height: 100%; width: 100%; object-fit: cover; }
     border-color: var(--brand-green);
     
 }
-.icon-btn:hover {
-    background: var(--brand-green);
-    color: white;
-    border-color: var(--brand-green);
-    
-}
