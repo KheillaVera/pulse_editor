@@ -28,6 +28,13 @@ body {
     transition: background 0.3s ease, color 0.3s ease;
 }
 
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
 /* Ensure panels use the new variable */
 .sidebar, .editor-nav, .tool-panel-area, .timeline-panel {
     background: var(--bg-panel) !important;
